@@ -1,2 +1,2 @@
-# graph influence backend
+# Graph influence
 
