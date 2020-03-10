@@ -1,13 +1,13 @@
-package com.demo.lastika;
+package com.influence.graph;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LastikaApplication {
+public class GraphApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LastikaApplication.class, args);
+		SpringApplication.run(GraphApplication.class, args);
 	}
 
 }

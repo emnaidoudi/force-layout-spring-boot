@@ -1,10 +1,10 @@
-package com.demo.lastika;
+package com.influence.graph;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LastikaApplicationTests {
+class GraphApplicationTests {
 
 	@Test
 	void contextLoads() {
