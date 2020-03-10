@@ -15,6 +15,11 @@ public class Dimemployee {
     private String firstname;
     private String lastname;
 
+    public Dimemployee() {
+    }
+    public Dimemployee(String idemp) {
+        this.idemp = idemp;
+    }
     @Id
     @Column(name = "idemp")
     public String getIdemp() {

@@ -2,14 +2,22 @@ package com.influence.graph.model;
 
 import javax.persistence.Entity;
 
-@Entity
-public class Node extends Dimemployee {
+//@Entity
+public class Node {
+    private String EmployeeId;
     private String name;
-    private Integer nb_like;
-    private Integer nb_comments;
+    private Long nb_like;
+    private Long nb_comments;
     private Float score;
     private boolean influencerOrNot;
     private String category;
+
+    public Node(String EmployeeId, String name, Long nb_like,Long nb_comments  ) {
+        this.EmployeeId = EmployeeId;
+        this.name = name;
+        this.nb_like = nb_like;
+        this.nb_comments = nb_comments;
+    }
 
     public String getName() {
         return name;
@@ -17,19 +25,19 @@ public class Node extends Dimemployee {
     public void setName(String name) {
         this.name = name;
     }
-    public Integer getNb_like() {
+    public Long getNb_like() {
         return nb_like;
     }
 
-    public void setNb_like(Integer nb_like) {
+    public void setNb_like(Long nb_like) {
         this.nb_like = nb_like;
     }
 
-    public Integer getNb_comments() {
+    public Long getNb_comments() {
         return nb_comments;
     }
 
-    public void setNb_comments(Integer nb_comments) {
+    public void setNb_comments(Long nb_comments) {
         this.nb_comments = nb_comments;
     }
 
@@ -56,4 +64,16 @@ public class Node extends Dimemployee {
     public void setCategory(String category) {
         this.category = category;
     }
+
+    public String getEmployeeId() {
+        return EmployeeId;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        EmployeeId = employeeId;
+    }
+
+    public Node() {
+    }
+
 }

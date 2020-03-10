@@ -21,7 +21,7 @@ public class ServiceEmployee implements IServiceEmployee{
         return (List<Dimemployee>) repository.findAll();
     }
 
-    private Float calculateScore(Integer nb_likes, Integer nb_comments, float bias){
+    private Float calculateScore(Long nb_likes, Long nb_comments, float bias){
         return nb_likes + bias * nb_comments;
     }
     @Override
@@ -30,8 +30,6 @@ public class ServiceEmployee implements IServiceEmployee{
         nodes.forEach(node -> {
             node.setScore(calculateScore(node.getNb_like(), node.getNb_comments(), 2));
             node.setInfluencerOrNot(node.getScore()>= THRESHOLD?true:false);
-            node.setFirstname(this.findNameById(node.getIdemp()));
-            node.setName(node.getFirstname());
         });
         return nodes;
     }
