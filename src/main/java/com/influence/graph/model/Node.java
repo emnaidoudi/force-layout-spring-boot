@@ -1,16 +1,15 @@
 package com.influence.graph.model;
 
-import javax.persistence.Entity;
-
 //@Entity
 public class Node {
+
     private String EmployeeId;
     private String name;
     private Long nb_like;
     private Long nb_comments;
     private Float score;
     private boolean influencerOrNot;
-    private String category;
+    private Integer category;
 
     public Node(String EmployeeId, String name, Long nb_like,Long nb_comments  ) {
         this.EmployeeId = EmployeeId;
@@ -57,19 +56,19 @@ public class Node {
         this.influencerOrNot = influencerOrNot;
     }
 
-    public String getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 
-    public String getEmployeeId() {
+    public String getId() {
         return EmployeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setId(String employeeId) {
         EmployeeId = employeeId;
     }
 

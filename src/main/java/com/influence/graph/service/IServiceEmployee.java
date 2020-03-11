@@ -8,5 +8,4 @@ import java.util.List;
 public interface IServiceEmployee {
     List<Dimemployee> findAll();
     List<Node> findNodes();
-    String findNameById(String id);
 }
