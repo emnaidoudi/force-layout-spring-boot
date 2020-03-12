@@ -26,7 +26,7 @@ public interface EmployeeRepository extends CrudRepository<Dimemployee, String> 
 //            "GROUP by factacceuil.idemp",nativeQuery = true)
 //    public List<Node> getNodes();
 
-    @Query("select new  com.influence.graph.model.Node(emp.idemp, emp.firstname  , count(fi.idreact) , count(fi.idcom))  from Factinteract fi INNER JOIN Factacceuil fa on fa.idpost = fi.idpost LEFT JOIN Dimemployee emp on fa.idemp = emp.idemp  group by emp.idemp   ")
+    @Query("select new  com.influence.graph.model.Node(emp.idemp, emp.firstname  , count(fi.idreact) , count(fi.idcom))  from Factinteract fi INNER JOIN Factacceuil fa on fa.idpost = fi.idpost LEFT JOIN Dimemployee emp on fa.idemp = emp.idemp or fi.idemp = emp.idemp  group by emp.idemp   ")
     List<Node> getNodes();
 
 }
