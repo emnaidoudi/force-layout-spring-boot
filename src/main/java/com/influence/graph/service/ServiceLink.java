@@ -17,7 +17,7 @@ public class ServiceLink  implements IServiceLink{
     public List<Link> getLinks() {
         List<Link> links =  repository.getLinks();
         links.forEach(link -> {
-            link.setInfluenceScore(GraphServices.calculateScore(link.getNb_like(), link.getNb_comments(), 2));
+            link.setInfluenceScore(GraphServices.calculateScore(1L,link.getNb_like(), link.getNb_comments(), 2));
         });
         return links;
     }

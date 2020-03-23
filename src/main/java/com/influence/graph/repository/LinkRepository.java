@@ -11,6 +11,11 @@ import java.util.List;
 @Repository
 public interface LinkRepository extends CrudRepository<Dimemployee, String> {
 
-    @Query("select new com.influence.graph.model.Link(fa.idemp, fi.idemp  , count(fi.idreact) , count(fi.idcom))  from Factinteract fi INNER JOIN Factacceuil fa on fa.idpost = fi.idpost  group by fa.idemp, fi.idemp   ")
+    @Query("select new com.influence.graph.model.Link(fa.idemp, fi.idemp  , count(fi.idreact) ," +
+            " count(fi.idcom)) " +
+            " from Factinteract fi " +
+            "INNER JOIN Factacceuil fa " +
+            "on fa.idpost = fi.idpost  " +
+            "group by fa.idemp, fi.idemp   ")
     List<Link> getLinks();
 }

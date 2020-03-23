@@ -9,13 +9,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class ServiceEmployee implements IServiceEmployee{
 
     private float THRESHOLD = (float) 7;
-    @Autowired
-    private EmployeeRepository repository;
+    private final EmployeeRepository repository;
+
+    public ServiceEmployee(EmployeeRepository repository) {
+        this.repository = repository;
+    }
+
     @Override
     public List<Dimemployee> findAll() {
         return (List<Dimemployee>) repository.findAll();
@@ -24,16 +30,15 @@ public class ServiceEmployee implements IServiceEmployee{
 
     @Override
     public List<Node> findNodes() {
-
-        Random random = new Random();
+        List<Node> passifNodes = repository.getPassiveNodes();
         List<Node> nodes = repository.getNodes();
         nodes.forEach(node -> {
-            Integer x =  random.nextInt(8);
-            node.setScore(GraphServices.calculateScore(node.getNb_like(), node.getNb_comments(), 2));
+            node.setScore(GraphServices.calculateScore(node.getNb_posts(),node.getNb_like(), node.getNb_comments(), 2));
             node.setInfluencerOrNot(node.getScore()>= THRESHOLD?true:false);
-            node.setCategory(x); //node.isInfluencerOrNot()?1:2
         });
-        return nodes;
+        List<Node> allNodes = Stream.concat(nodes.stream(), passifNodes.stream())
+                .collect(Collectors.toList());
+        return allNodes;
     }
 
 }

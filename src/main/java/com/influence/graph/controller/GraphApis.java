@@ -19,11 +19,14 @@ import java.util.List;
 @CrossOrigin
 @Controller
 public class GraphApis {
-    @Autowired
-    private IServiceEmployee serviceEmployee;
+    private final IServiceEmployee serviceEmployee;
 
-    @Autowired
-    private IServiceLink iServiceLink;
+    private final IServiceLink iServiceLink;
+
+    public GraphApis(IServiceEmployee serviceEmployee, IServiceLink iServiceLink) {
+        this.serviceEmployee = serviceEmployee;
+        this.iServiceLink = iServiceLink;
+    }
 
     @GetMapping("/showEmployees")
     public @ResponseBody
@@ -34,6 +37,8 @@ public class GraphApis {
     @GetMapping("/showNodes")
     public @ResponseBody
     List<Node> findNodes() {
+//        List<Node> nodes = serviceEmployee.findNodes();
+//        return nodes.subList(0,15);
         return serviceEmployee.findNodes();
     }
 
