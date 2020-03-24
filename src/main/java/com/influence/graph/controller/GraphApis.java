@@ -37,14 +37,20 @@ public class GraphApis {
     @GetMapping("/showNodes")
     public @ResponseBody
     List<Node> findNodes() {
-//        List<Node> nodes = serviceEmployee.findNodes();
-//        return nodes.subList(0,15);
-        return serviceEmployee.findNodes();
+        List<Node> nodes = serviceEmployee.findNodes();
+        return nodes.subList(0,15);
+        //return serviceEmployee.findNodes();
     }
 
     @GetMapping("/showLinks")
     public @ResponseBody
     List<Link> findLinks() {
         return iServiceLink.getLinks();
+    }
+
+    @GetMapping("/showSites")
+    public @ResponseBody
+    List<String> findSites() {
+        return serviceEmployee.listSites();
     }
 }

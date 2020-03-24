@@ -38,7 +38,13 @@ public class ServiceEmployee implements IServiceEmployee{
         });
         List<Node> allNodes = Stream.concat(nodes.stream(), passifNodes.stream())
                 .collect(Collectors.toList());
+        System.out.println(allNodes.size());
         return allNodes;
+    }
+
+    @Override
+    public List<String> listSites() {
+        return repository.listSite();
     }
 
 }

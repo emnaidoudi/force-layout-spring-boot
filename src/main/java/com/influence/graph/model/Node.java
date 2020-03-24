@@ -9,11 +9,11 @@ public class Node {
     private Long nb_comments;
     private Float score;
     private boolean influencerOrNot;
-    private Integer category; // the site for now
+    private String category; // the site for now
     private Long nb_posts;
 
 
-    public Node(String EmployeeId, String firstName, String lastName, Long nb_posts, Long nb_like, Long nb_comments , Integer category ) {
+    public Node(String EmployeeId, String firstName, String lastName, Long nb_posts, Long nb_like, Long nb_comments , String category ) {
         this.EmployeeId = EmployeeId;
         this.name = firstName + " " + lastName;
         this.nb_like = nb_like;
@@ -23,10 +23,11 @@ public class Node {
     }
 
     // for the employee who has never posted a post
-    public Node(String EmployeeId, String firstName,  String lastName ,Integer category ) {
+    public Node(String EmployeeId, String firstName,  String lastName ,String category ) {
         this.EmployeeId = EmployeeId;
         this.name = firstName + " " + lastName;
         this.category  = category;
+        //this.score = 0F;
     }
 
 /*    public String getEmployeeId() {
@@ -85,11 +86,11 @@ public class Node {
         this.influencerOrNot = influencerOrNot;
     }
 
-    public Integer getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(Integer category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
