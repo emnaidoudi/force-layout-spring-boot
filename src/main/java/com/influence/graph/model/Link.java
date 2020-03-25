@@ -1,5 +1,7 @@
 package com.influence.graph.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 
 public class Link {
@@ -36,7 +38,7 @@ public class Link {
     public void setTarget(String target) {
         this.target = target;
     }
-
+    @JsonIgnore
     public Long getNb_like() {
         return nb_like;
     }
@@ -44,7 +46,7 @@ public class Link {
     public void setNb_like(Long nb_like) {
         this.nb_like = nb_like;
     }
-
+    @JsonIgnore
     public Long getNb_comments() {
         return nb_comments;
     }

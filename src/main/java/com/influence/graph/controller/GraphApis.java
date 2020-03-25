@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.Convert;
+import java.util.Collections;
 import java.util.List;
 
 @CrossOrigin
@@ -38,7 +39,8 @@ public class GraphApis {
     public @ResponseBody
     List<Node> findNodes() {
         List<Node> nodes = serviceEmployee.findNodes();
-        return nodes.subList(0,15);
+        Collections.shuffle(nodes);
+        return nodes.subList(0,30);
         //return serviceEmployee.findNodes();
     }
 

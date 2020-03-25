@@ -5,7 +5,9 @@ import com.influence.graph.repository.LinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ServiceLink  implements IServiceLink{
@@ -17,9 +19,14 @@ public class ServiceLink  implements IServiceLink{
     public List<Link> getLinks() {
         List<Link> links =  repository.getLinks();
         links.forEach(link -> {
-            link.setInfluenceScore(GraphServices.calculateScore(1L,link.getNb_like(), link.getNb_comments(), 2));
+            Float score = GraphServices.calculateScore(1L,link.getNb_like(), link.getNb_comments(), 1);
+            link.setInfluenceScore(score);
         });
-        return links;
+        List<Link> sortByInfluenceScore = links.stream()
+                .filter(i -> i.getInfluenceScore() >40)
+                .sorted(Comparator.comparingDouble(Link::getInfluenceScore))
+                .collect(Collectors.toList());
+        return sortByInfluenceScore;
     }
 
 }
