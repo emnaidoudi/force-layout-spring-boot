@@ -7,13 +7,12 @@ public class Node {
 
     private String EmployeeId;
     private String name;
+    private Long nb_posts;
     private Long nb_like;
     private Long nb_comments;
     private Float score;
     private boolean influencerOrNot;
-    private String category; // the site for now
-    private Long nb_posts;
-
+    private String category; // the site for now : represents the filter
 
     public Node(String EmployeeId, String firstName, String lastName, Long nb_posts, Long nb_like, Long nb_comments , String category ) {
         this.EmployeeId = EmployeeId;
