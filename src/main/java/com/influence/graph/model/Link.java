@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 public class Link {
 
     //private String idEdge; //AutoIncrement
-    private String source;
-    private String target;
+    private String source; //influenceur (le plus grand score)
+    private String target; //influencé
     private Long nb_like;
     private Long nb_comments;
     private Float influenceScore; // Average

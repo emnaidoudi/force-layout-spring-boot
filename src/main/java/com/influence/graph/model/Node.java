@@ -2,6 +2,8 @@ package com.influence.graph.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+// Calcul de score
+// le filter (category)
 //@Entity
 public class Node {
 
