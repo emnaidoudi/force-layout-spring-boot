@@ -7,7 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 //@Entity
 public class Node {
 
-    private String EmployeeId;
+    private Dimemployee employee;
+    private String employeeId;
     private String name;
     private Long nb_posts;
     private Long nb_like;
@@ -16,9 +17,10 @@ public class Node {
     private boolean influencerOrNot;
     private String category; // the site for now : represents the filter
 
-    public Node(String EmployeeId, String firstName, String lastName, Long nb_posts, Long nb_like, Long nb_comments , String category ) {
-        this.EmployeeId = EmployeeId;
-        this.name = firstName + " " + lastName;
+    public Node(Dimemployee employee, Long nb_posts, Long nb_like, Long nb_comments , String category ) {
+       this.employeeId = employee.getIdemp();
+        this.employee = employee;
+        this.name = employee.getFirstname() + " " + employee.getLastname();
         this.nb_like = nb_like;
         this.nb_comments = nb_comments;
         this.category  = category;
@@ -26,9 +28,10 @@ public class Node {
     }
 
     // for the employee who has never posted a post
-    public Node(String EmployeeId, String firstName,  String lastName ,String category ) {
-        this.EmployeeId = EmployeeId;
-        this.name = firstName + " " + lastName;
+    public Node(Dimemployee employee,  String category ) {
+       this.employee = employee;
+        this.employeeId = employee.getIdemp();
+        this.name = employee.getFirstname() + " " + employee.getLastname();
         this.category  = category;
         //this.score = 0F;
     }
@@ -40,6 +43,14 @@ public class Node {
     public void setEmployeeId(String employeeId) {
         EmployeeId = employeeId;
     }*/
+
+    public Dimemployee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Dimemployee employee) {
+        this.employee = employee;
+    }
 
     public Long getNb_posts() {
         return nb_posts;
@@ -99,11 +110,11 @@ public class Node {
     }
 
     public String getId() {
-        return EmployeeId;
+        return employeeId;
     }
 
     public void setId(String employeeId) {
-        EmployeeId = employeeId;
+        employeeId = employeeId;
     }
 
     public Node() {
